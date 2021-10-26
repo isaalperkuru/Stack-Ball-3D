@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6920255094320894864}
   - component: {fileID: 4104995248680922813}
   - component: {fileID: 7477097748850115260}
+  - component: {fileID: 7782694403840366340}
   m_Layer: 0
   m_Name: 1
   m_TagString: plane
@@ -111,6 +112,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7782694403840366340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920255094323088720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0751d13e78e61fa4196cbfb2cb06bfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6920255094323088722
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +137,7 @@ GameObject:
   - component: {fileID: 6920255094320894866}
   - component: {fileID: 4861659091096004480}
   - component: {fileID: 2358610755869923708}
+  - component: {fileID: 3058194367601906269}
   m_Layer: 0
   m_Name: 2
   m_TagString: plane
@@ -222,6 +236,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3058194367601906269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920255094323088722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0751d13e78e61fa4196cbfb2cb06bfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6920255094323088724
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,6 +261,7 @@ GameObject:
   - component: {fileID: 6920255094320894868}
   - component: {fileID: 6761221581571094683}
   - component: {fileID: 1393658889261295060}
+  - component: {fileID: 7357015754870410857}
   m_Layer: 0
   m_Name: 3
   m_TagString: plane
@@ -333,6 +360,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7357015754870410857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920255094323088724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0751d13e78e61fa4196cbfb2cb06bfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6920255094323088726
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +385,7 @@ GameObject:
   - component: {fileID: 6920255094320894870}
   - component: {fileID: 495444793787339263}
   - component: {fileID: 4864927396232384901}
+  - component: {fileID: 4125801941602121614}
   m_Layer: 0
   m_Name: 4
   m_TagString: enemy
@@ -444,6 +484,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4125801941602121614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920255094323088726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0751d13e78e61fa4196cbfb2cb06bfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6920255094323088728
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6920255094322663800}
+  - component: {fileID: 6482397104180736521}
   m_Layer: 0
   m_Name: spikes 3
   m_TagString: Untagged
@@ -478,3 +531,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6482397104180736521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6920255094323088728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a00d79ae30757489210d39d15fc9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackPartControlls:
+  - {fileID: 7782694403840366340}
+  - {fileID: 3058194367601906269}
+  - {fileID: 7357015754870410857}
+  - {fileID: 4125801941602121614}
