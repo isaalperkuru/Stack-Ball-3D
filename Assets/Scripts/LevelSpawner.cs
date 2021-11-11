@@ -15,7 +15,7 @@ public class LevelSpawner : MonoBehaviour
     private int level = 1;
     private int addOn = 7;
     float i = 0;
-    void Start()
+    void Awake()
     {
         level = PlayerPrefs.GetInt("Level", 1);
 

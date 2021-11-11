@@ -1,20 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
 
+    private Text scoreText;
+
     public int score = 0;
     void Awake()
     {
+        scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         MakeSingleton();
     }
 
     private void Start()
     {
         AddScore(0);
+    }
+
+    private void Update()
+    {
+        if(scoreText == null)
+        {
+            scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+            AddScore(0);
+        }
     }
     void MakeSingleton()
     {
@@ -33,8 +46,7 @@ public class ScoreManager : MonoBehaviour
         if (score > PlayerPrefs.GetInt("HighScore", 0))
             PlayerPrefs.SetInt("HighScore", score);
 
-        print(score);
-        //LoadTheText
+        scoreText.text = score.ToString();
     }
 
     public void ResetScore()

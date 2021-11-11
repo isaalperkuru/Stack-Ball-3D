@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     public AudioClip bounceOffClip, deadClip, winClip, destroyClip, invincibleDestroyClip;
 
+    private int currentBrokenStacks, totalStacks;
     public enum PlayerState
     {
         Prepare,
@@ -25,8 +26,13 @@ public class Player : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        currentBrokenStacks = 0;
     }
 
+    private void Start()
+    {
+        totalStacks = FindObjectsOfType<StackController>().Length;
+    }
     void Update()
     {
         if (playerState == PlayerState.Playing)
@@ -95,6 +101,7 @@ public class Player : MonoBehaviour
 
     public void IncreaseBrokenStacks()
     {
+        currentBrokenStacks++;
         if (!invincible)
         {
             ScoreManager.instance.AddScore(1);
@@ -140,6 +147,8 @@ public class Player : MonoBehaviour
             }
             
         }
+
+        FindObjectOfType<GameUI>().LevelSliderFill(currentBrokenStacks / (float)totalStacks);
 
         if(collision.gameObject.tag == "Finish" && playerState == PlayerState.Playing)
         {
