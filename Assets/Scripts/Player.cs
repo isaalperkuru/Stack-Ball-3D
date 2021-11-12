@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class Player : MonoBehaviour
     public AudioClip bounceOffClip, deadClip, winClip, destroyClip, invincibleDestroyClip;
 
     private int currentBrokenStacks, totalStacks;
+
+    public GameObject invincibleObj;
+    public Image invincibleFill;
+    public GameObject fireEffect;
+
     public enum PlayerState
     {
         Prepare,
@@ -49,34 +55,47 @@ public class Player : MonoBehaviour
             if (invincible)
             {
                 currentTime -= Time.deltaTime * .35f;
+                if (!fireEffect.activeInHierarchy)
+                    fireEffect.SetActive(true);
             }
             else
             {
+                if (fireEffect.activeInHierarchy)
+                    fireEffect.SetActive(false);
+
                 if (smash)
                     currentTime += Time.deltaTime * .8f;
                 else
                     currentTime -= Time.deltaTime * .5f;
             }
 
-            //UI check
+            if (currentTime >= 0.3f || invincibleFill.color == Color.red)
+                invincibleObj.SetActive(true);
+            else
+                invincibleObj.SetActive(false);
 
             if (currentTime >= 1)
             {
                 currentTime = 1;
                 invincible = true;
+                invincibleFill.color = Color.red;
             }
             else if (currentTime <= 0)
             {
                 currentTime = 0;
                 invincible = false;
+                invincibleFill.color = Color.white;
             }
+
+            if (invincibleObj.activeInHierarchy)
+                invincibleFill.fillAmount = currentTime / 1;
         }
 
-        if(playerState == PlayerState.Prepare)
+        /*if(playerState == PlayerState.Prepare)
         {
             if (Input.GetMouseButtonDown(0))
                 playerState = PlayerState.Playing;
-        }
+        }*/
         if (playerState == PlayerState.Finish)
         {
             if (Input.GetMouseButtonDown(0))
