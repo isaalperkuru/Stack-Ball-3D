@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     void Awake()
     {
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+        PlayerPrefs.GetInt("Score", 0);
         MakeSingleton();
     }
 
@@ -42,15 +43,18 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int amount)
     {
-        score += amount;
-        if (score > PlayerPrefs.GetInt("HighScore", 0))
-            PlayerPrefs.SetInt("HighScore", score);
+        PlayerPrefs.SetInt("Score", (PlayerPrefs.GetInt("Score") + amount));
+        //score += amount;
+        if (/*score*/ PlayerPrefs.GetInt("Score") > PlayerPrefs.GetInt("HighScore", 0))
+            PlayerPrefs.SetInt("HighScore", PlayerPrefs.GetInt("Score"));
 
-        scoreText.text = score.ToString();
+        scoreText.text = PlayerPrefs.GetInt("Score").ToString();
+            //score.ToString();
     }
 
     public void ResetScore()
     {
-        score = 0;
+        PlayerPrefs.SetInt("Score", 0);
+        //score = 0;
     }
 }
